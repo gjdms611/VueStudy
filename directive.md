@@ -123,8 +123,7 @@ v-pre와 cloak, once는 건영이가 하지 말라고 해서 안함 미래의 �
     </div>
 </details>
 
-## v-bind
-[참고 출처](https://velopert.com/3095)</br>
+## [v-bind](https://velopert.com/3095)
 ```
 {{ value }} 
 ```
@@ -147,8 +146,7 @@ v-pre와 cloak, once는 건영이가 하지 말라고 해서 안함 미래의 �
 ```
 와 같은 사용 또한 가능하다.</br></br>
 
-## v-for
-[참고 출처](https://velopert.com/3118)</br>
+## [v-for](https://velopert.com/3118)
 이름에서도 알 수 있듯, 말 그대로 for문을 사용할 수 있게 해준다.</br>
 일반적으로는 게시물 목록, 댓글 목록 표시 등에 사용한다고 한다.</br>
 예전에 비슷한 기억이 새록새록 나는 것 같기도 하고..</br>
@@ -183,8 +181,7 @@ v-pre와 cloak, once는 건영이가 하지 말라고 해서 안함 미래의 �
 ### 출력 결과
 ![v-for_출력결과](./image/vfor.jpg)</br></br>
 
-## v-model
-[참고 출처](https://velopert.com/3136)</br>
+## [v-model](https://velopert.com/3136)
 우리가 지금까지 사용한 것은 단방향 바인딩이다. 즉, 저장된 값을 출력하기만 할 뿐 우리가 적은 값을 보내는 일은 없었다는 것이다.</br>
 이를 velopert님은 데이터->뷰라고 표현하셨다. 양방향 바인딩이란 데이터->뷰와 뷰->데이터 모두 실시간으로 가능한 것이라고..한다.</br>
 예제가 처음으로 내가 뷰를 배우겠다고 선언했을 때 박건영이 들어주었던것과 같아서 약간 뿌듯하다.ㅎ
@@ -202,9 +199,32 @@ data: {
 ```
 
 ### 출력 결과
-![v-model_출력결과](./image/vmodel.jpg)</br></br>
+![v-model_출력결과](./image/vmodel.gif)</br></br>
 
 ## [v-on](https://velopert.com/3148)
-[참고 출처](https://velopert.com/3148)</br>
-이벤트를 처리할 수 있게 해준다. 어떤 이벤트를 처리할 수 있는지에 대한 설명은, [공식문서](https://kr.vuejs.org/v2/guide/events.html)를 참조하자.
-
+이벤트를 처리할 수 있게 해준다. 어떤 이벤트를 처리할 수 있는지에 대한 설명은, [공식문서](https://kr.vuejs.org/v2/guide/events.html)를 참조하자.</br>
+v-on:은 @로 대체하여 사용이 가능하다.
+```
+<button v-on:click="increment">증가</button>
+```
+```
+<button @click="increment">증가</button>
+```
+따라서 위의 두 코드는 동일한 의미를 갖는다.</br>
+위에서 사용한 increment는 "메소드"이다. 정의하는 방법은 데이터를 선언할 때 처럼 methods:를 이용해 선언하고 내부에 정의할 함수들을 적으면 된다.</br>
+```
+data: {
+    number: 0
+},
+// app 뷰 인스턴스를 위한 메소드들
+methods: {
+  // 메소드명: function()
+  increment: function() {
+    // 인스턴스 내부의 데이터모델에 접근할 때는 this 를 사용한다
+    this.number++;
+  },
+  decrement: function() {
+    this.number--;
+  }
+}
+```
